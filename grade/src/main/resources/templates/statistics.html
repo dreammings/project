@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>成绩统计</title>
+    <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文"/>
+    <meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- basic styles -->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link  rel="stylesheet" href="../../my/css/statistics.css"/>
+    <link rel="stylesheet" href="../../assets/css/ace.min.css"/>
+    <script src="../../assets/js/jquery-2.0.3.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery-ui-1.10.3.full.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/jquery-ui-1.10.3.full.min.css"/>
+    <link rel="stylesheet" href="../my/js/platform/jquery.ui.datepicker-zh-CN.js"/>
+    <script src="../../my/js/platform/echarts.common.min.js"></script>
+    <script src="../../my/js/platform/echarts.min.js"></script>
+
+</head>
+
+<body>
+    <div class="con">
+        <div class="search">
+            <form class="search-form">
+                <table class="search-table">
+                    <tr>
+                        <td class="search-table-td">
+                            <label> 类型 </label>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-sm-9">
+                                    <div class="btn-group">
+                                        <button type="button" id="exam-type" class="btn btn-default  btn-lg"
+                                                data-toggle="dropdown">
+                                            全部
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu" id="exam-type-menu">
+                                            <li><a href="#">全部</a></li>
+                                            <li><a href="#">周测</a></li>
+                                            <li><a href="#">月考</a></li>
+                                            <li><a href="#">模考</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="search-table-td">
+                            <label> 科目 </label>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-sm-9">
+                                    <div class="btn-group">
+                                        <button type="button" id="subject-type" class="btn btn-default  btn-lg"
+                                                data-toggle="dropdown">
+                                            总分
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu" id="subject-type-menu">
+                                            <li name="total_points"><a href="#">总分</a></li>
+                                            <li name="chinese"><a href="#">语文</a></li>
+                                            <li name="maths"><a href="#">数学</a></li>
+                                            <li name="english"><a href="#">英语</a></li>
+                                            <li name="politics"><a href="#">政治</a></li>
+                                            <li name="history"><a href="#">历史</a></li>
+                                            <li name="geography"><a href="#">地理</a></li>
+                                            <li name="synthesize"><a href="#">文综</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="search-table-td">
+                            <label> 日期 </label>
+                        </td>
+                        <td>
+                            <div class="col-sm-9">
+                                <input type="text" class="input-sm exam-time" id="begin_date" placeholder="开始时间" readonly="readonly"/>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-sm-9">
+                                <input type="text" class="input-sm exam-time" id="end_date" placeholder="结束时间" readonly="readonly"/>
+
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" id="search" class="btn btn-default  btn-lg"
+                                    data-toggle="dropdown">
+                                查询
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <!--<div class="search-group">-->
+                    <!--<label class="search-label"> 类型 </label>-->
+
+                    <!--<div class="col-sm-9">-->
+                        <!--&lt;!&ndash;<input type="text" class="input-sm" id="form-input-readonly" placeholder="英语"/>&ndash;&gt;-->
+
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="search-group">-->
+                    <!--<label class="search-label" > 科目 </label>-->
+
+                    <!--<div class="col-sm-9">-->
+                        <!--&lt;!&ndash;<input type="text" class="input-sm" id="form-input-readonly" placeholder="英语"/>&ndash;&gt;-->
+
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="search-group">-->
+                    <!--<div class="search-date">-->
+                        <!--<label class="search-label" > 日期 </label>-->
+                    <!--</div>-->
+                    <!--<div class="search-date">-->
+                        <!--<label class="search-label" > 日期 </label>-->
+                        <!--<input type="text" class="input-sm" id="begin_date" placeholder="开始时间"/>-->
+                    <!--</div>-->
+                    <!--<div class="search-date">-->
+                        <!--<label class="search-label" > 日期 </label>-->
+                        <!--<input type="text" class="input-sm" id="end_date" placeholder="结束时间"/>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="search-group">-->
+                    <!--<label class="col-sm-3 control-label no-padding-right" for="form-input-readonly"> 英语 </label>-->
+
+                    <!--<div class="col-sm-9">-->
+                        <!--<input type="text" class="input-sm" id="form-input-readonly" placeholder="英语"/>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+            </form>
+        </div>
+        <div class="echarts-statistics" id="echarts-statistics">
+
+        </div>
+    </div>
+    <script src="../../my/js/statistics.js"></script>
+    <script src="../my/js/commen/datepicker.js"></script>
+    <!--<script src="../../my/js/form.js"></script>-->
+<!-- -->
+</body>
+</html>
+

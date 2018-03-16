@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jch.java.common.score.mapper.ScoreMapper">
+  <resultMap id="BaseResultMap" type="com.jch.java.common.score.model.Score">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="chinese" jdbcType="INTEGER" property="chinese" />
+    <result column="maths" jdbcType="INTEGER" property="maths" />
+    <result column="english" jdbcType="INTEGER" property="english" />
+    <result column="politics" jdbcType="INTEGER" property="politics" />
+    <result column="history" jdbcType="INTEGER" property="history" />
+    <result column="geography" jdbcType="INTEGER" property="geography" />
+    <result column="synthesize" jdbcType="INTEGER" property="synthesize" />
+    <result column="total_points" jdbcType="INTEGER" property="total_points" />
+    <result column="date" jdbcType="DATE" property="date" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, type, chinese, maths, english, politics, history, geography, synthesize, total_points, 
+    date
+  </sql>
+  <sql id="Monitor_Column_List">
+    id, type, chinese, maths, english, politics, history, geography, synthesize, total_points,
+    date, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from score
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from score
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.jch.java.common.score.model.Score" useGeneratedKeys="true">
+    insert into score (id, type, chinese, 
+      maths, english, politics, 
+      history, geography, synthesize, 
+      total_points, date, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{chinese,jdbcType=INTEGER}, 
+      #{maths,jdbcType=INTEGER}, #{english,jdbcType=INTEGER}, #{politics,jdbcType=INTEGER}, 
+      #{history,jdbcType=INTEGER}, #{geography,jdbcType=INTEGER}, #{synthesize,jdbcType=INTEGER}, 
+      #{total_points,jdbcType=INTEGER}, #{date,jdbcType=DATE}, #{create_time,jdbcType=TIMESTAMP}, 
+      #{update_time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.jch.java.common.score.model.Score" useGeneratedKeys="true">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      select LAST_INSERT_ID()
+    </selectKey>
+    insert into score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="chinese != null">
+        chinese,
+      </if>
+      <if test="maths != null">
+        maths,
+      </if>
+      <if test="english != null">
+        english,
+      </if>
+      <if test="politics != null">
+        politics,
+      </if>
+      <if test="history != null">
+        history,
+      </if>
+      <if test="geography != null">
+        geography,
+      </if>
+      <if test="synthesize != null">
+        synthesize,
+      </if>
+      <if test="totalPoints != null">
+        total_points,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="chinese != null">
+        #{chinese,jdbcType=INTEGER},
+      </if>
+      <if test="maths != null">
+        #{maths,jdbcType=INTEGER},
+      </if>
+      <if test="english != null">
+        #{english,jdbcType=INTEGER},
+      </if>
+      <if test="politics != null">
+        #{politics,jdbcType=INTEGER},
+      </if>
+      <if test="history != null">
+        #{history,jdbcType=INTEGER},
+      </if>
+      <if test="geography != null">
+        #{geography,jdbcType=INTEGER},
+      </if>
+      <if test="synthesize != null">
+        #{synthesize,jdbcType=INTEGER},
+      </if>
+      <if test="totalPoints != null">
+        #{totalPoints,jdbcType=INTEGER},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jch.java.common.score.model.Score">
+    update score
+    <set>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="chinese != null">
+        chinese = #{chinese,jdbcType=INTEGER},
+      </if>
+      <if test="maths != null">
+        maths = #{maths,jdbcType=INTEGER},
+      </if>
+      <if test="english != null">
+        english = #{english,jdbcType=INTEGER},
+      </if>
+      <if test="politics != null">
+        politics = #{politics,jdbcType=INTEGER},
+      </if>
+      <if test="history != null">
+        history = #{history,jdbcType=INTEGER},
+      </if>
+      <if test="geography != null">
+        geography = #{geography,jdbcType=INTEGER},
+      </if>
+      <if test="synthesize != null">
+        synthesize = #{synthesize,jdbcType=INTEGER},
+      </if>
+      <if test="totalPoints != null">
+        total_points = #{totalPoints,jdbcType=INTEGER},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jch.java.common.score.model.Score">
+    update score
+    set type = #{type,jdbcType=INTEGER},
+      chinese = #{chinese,jdbcType=INTEGER},
+      maths = #{maths,jdbcType=INTEGER},
+      english = #{english,jdbcType=INTEGER},
+      politics = #{politics,jdbcType=INTEGER},
+      history = #{history,jdbcType=INTEGER},
+      geography = #{geography,jdbcType=INTEGER},
+      synthesize = #{synthesize,jdbcType=INTEGER},
+      total_points = #{totalPoints,jdbcType=INTEGER},
+      date = #{date,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByDate" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select id from score where date = #{0} limit 1
+  </select>
+  <select id="selectByParams" resultType="com.jch.java.common.score.model.Score">
+      select
+      <include refid="Base_Column_List" />
+      from score
+      <where>
+        <if test="type&gt;0">
+          and type=#{type}
+        </if>
+        <if test="start_time != null and start_time != ''">
+          and date &gt;= #{start_time}
+        </if>
+        <if test="end_time != null and end_time != ''">
+          and date &lt;= #{end_time}
+        </if>
+      </where>
+      <choose>
+        <when test="sort != null and sort != ''">
+          order by #{sort}
+        </when>
+        <otherwise>
+          order by date
+        </otherwise>
+      </choose>
+      <choose>
+        <when test="sequence==1">
+          asc
+        </when>
+        <otherwise>
+          desc
+        </otherwise>
+      </choose>
+      limit #{page},#{per_page}
+  </select>
+  <select id="selectForStatistic" resultType="java.util.HashMap">
+    select
+      ${subject}, date
+    from score
+    <where>
+      <if test="type&gt;0">
+        and type=#{type}
+      </if>
+      <if test="start_time != null and start_time != ''">
+        and date &gt;= #{start_time}
+      </if>
+      <if test="end_time != null and end_time != ''">
+        and date &lt;= #{end_time}
+      </if>
+    </where>
+    order by date asc
+    <!--limit 10-->
+  </select>
+  <select id="selectTotal" resultType="java.lang.Integer">
+    select COUNT(id)
+    FROM score
+    <where>
+      <if test="type&gt;0">
+        and type=#{type}
+      </if>
+      <if test="start_time != null and start_time != ''">
+        and date &gt;= #{start_time}
+      </if>
+      <if test="end_time != null and end_time != ''">
+        and date &lt;= #{end_time}
+      </if>
+    </where>
+  </select>
+</mapper>

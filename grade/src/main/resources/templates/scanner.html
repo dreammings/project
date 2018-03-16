@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>成绩录入</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- basic styles -->
+    <script src="../assets/js/jquery-2.0.3.min.js"></script>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../assets/js/jquery-ui-1.10.3.full.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/jquery-ui-1.10.3.full.min.css"/>
+    <link rel="stylesheet" href="../assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="../my/css/form.css"/>
+    <link rel="stylesheet" href="../my/js/platform/jquery.ui.datepicker-zh-CN.js"/>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!--<script src="../my/js/down-menu.js"></script>-->
+    <script src="../my/js/commen/datepicker.js"></script>
+    <script src="../my/js/form.js"></script>
+
+
+</head>
+
+<body>
+<div class="col-xs-12">
+    <!-- PAGE CONTENT BEGINS -->
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="exam-type"> 类型： </label>
+            <div class="col-sm-9">
+                <div class="btn-group">
+                    <button type="button" id="exam-type" class="btn btn-default  btn-lg"
+                            data-toggle="dropdown">
+                        默认
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" id="exam-type-menu">
+                        <li><a href="#">默认</a></li>
+                        <li><a href="#">周测</a></li>
+                        <li><a href="#">月考</a></li>
+                        <li><a href="#">模考</a></li>
+                    </ul>
+                </div>
+                <span class="hide red">请选择考试类型！</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="exam-time"> 考试日期：</label>
+
+            <div class="col-sm-9">
+                <input id="exam-time" class="input-sm exam-time" type="text" placeholder="时间" readonly="readonly"/>
+                <span class="hide red">请选择考试日期！</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="chinese"> 语文：</label>
+
+            <div class="col-sm-9">
+                <input id="chinese" class="input-sm" type="number" placeholder="语文"/>
+                <span class="hide red">请填写语文成绩！</span>
+                <span class="hide red">请确认分数是否填写正确！</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="maths"> 数学： </label>
+
+            <div class="col-sm-9">
+                <input id="maths" class="input-sm" type="number" placeholder="数学" />
+                <span class="hide red">请填写数学成绩！</span>
+                <span class="hide red">请确认分数是否填写正确！</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="english"> 英语： </label>
+
+            <div class="col-sm-9">
+                <input id="english" class="input-sm" type="number" placeholder="英语"/>
+                <span class="hide red">请填写英语成绩！</span>
+                <span class="hide red">请确认分数是否填写正确！</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="politics">政治：</label>
+
+            <div class="col-sm-9">
+                <input id="politics" class="input-sm" type="number" placeholder="政治"/>
+                <span class="hide red">请填写政治成绩！</span>
+                <span class="hide red">请确认分数是否填写正确！</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="history">历史：</label>
+
+            <div class="col-sm-9">
+                <input id="history" class="input-sm" type="number" placeholder="历史"/>
+                <span class="hide red">请填写历史成绩！</span>
+                <span class="hide red">请确认分数是否填写正确！</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right">地理：</label>
+
+            <div class="col-sm-9">
+                <input id="geography" class="input-sm" type="number" placeholder="地理" />
+                <span class="hide red">请填写地理成绩！</span>
+                <span class="hide red">请确认分数是否填写正确！</span>
+            </div>
+        </div>
+
+
+        <div class="clearfix form-actions">
+            <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-info" type="button" id="commit">
+                    <i class="icon-ok bigger-110"></i>
+                    保存
+                </button>
+
+                &nbsp; &nbsp; &nbsp;
+                <button class="btn" type="reset">
+                    <i class="icon-undo bigger-110"></i>
+                    重置
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+</div><!-- /.col -->
+
+</body>
+</html>

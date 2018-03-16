@@ -1,0 +1,15 @@
+html {
+    min-height: 100%;
+    position: relative
+}
+body {
+    padding-bottom: 0;
+    min-height: 100%;
+    position: absolute;
+}
+#mydiv{
+    background-color: forestgreen;
+    position: absolute;
+    top:0px;
+    bottom: 0px;
+}

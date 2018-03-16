@@ -1,0 +1,66 @@
+html {
+    min-height: 100%;
+    /*position: relative*/
+}
+
+body {
+    padding-bottom: 0;
+    background-color: #e0c43a;
+    /*background-color: #ffff00;*/
+    min-height: 100%;
+    font-family: 'Open Sans';
+    font-size: 13px;
+    /*color: #393939;*/
+    line-height: 1.5
+}
+/*.container{*/
+    /*text-align:center;*/
+    /*background: #f0ad4e;*/
+/*}*/
+.search{
+    position: relative;
+    height: 50px;
+    /*width: 800px;*/
+    margin: 30px 15%;
+    /*background: #ffffff;*/
+}
+/*.search-group{*/
+    /*float: left;*/
+    /*margin: 10px 20px;*/
+    /*padding-left: 20px;*/
+/*}*/
+.search-label{
+    float: left;
+    width: 30px;
+}
+.search-date{
+    float: left;
+    width: 30px;
+    margin-left: 20px;
+    background-color: #f0ad4e;
+}
+.search-table .search-table-td{
+    width: 60px;
+    margin-left: 20px;
+    padding: 20px 10px;
+}
+
+/*#begin_date{*/
+    /*bl*/
+/*}*/
+#dddd{
+    background-color: #f0ad4e;
+}
+.echarts-statistics {
+    position: relative;
+    /*height: auto;*/
+    /*width: 50%;*/
+    height: 500px;
+    width: 70%;
+    margin: 50px 10%;
+    padding: 10px 20px;
+    /*margin-top:50px;*/
+    /*margin-left:150px;*/
+    /*margin-bottom:50px;*/
+    background: #ffffff;
+}
