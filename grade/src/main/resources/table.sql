@@ -15,3 +15,5 @@ CREATE TABLE `score` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- 测试提交github
+
